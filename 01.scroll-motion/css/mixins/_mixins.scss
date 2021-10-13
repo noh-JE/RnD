@@ -1,0 +1,36 @@
+@mixin flexCenter($content: null, $item: null, $justify: null) {
+    display: flex;
+    align-content: $content;
+    align-items: $item;
+    justify-content: $justify;
+    @if($content == null && $item == null && $justify == null) {
+        align-content: center;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@mixin posAbs($top: null, $right: null, $bottom: null, $left: null) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    //@if($top == null && $right == null && $bottom == null && $left == null) {
+    //    top: 0;
+    //    left: 0;
+    //}
+}
+
+@mixin backgroundAbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin radius($round) {
+    border-radius: $round;
+}
+
