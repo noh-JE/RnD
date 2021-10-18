@@ -4,19 +4,19 @@ CODING = (function($) {
     'use strict';
 
     // init controller -> ScrollMagic
-    var controller = new ScrollMagic.Controller();
+    const controller = new ScrollMagic.Controller();
 
     // tween-max
-    var tweenAnimation = new TimelineMax();
+    // let tweenAnimation = new TimelineMax();
     tweenAnimation
         .to($('.card1'), 0.03, {rotation: 7})
         .to($('.card2'), 0.03, {rotation: 14})
         .to($('.card3'), 0.03, {rotation: 21});
 
-    var common = {
+    let common = {
         scrollMotion: function() {
             // scrollMagic
-            var tween = new ScrollMagic.Scene({
+            let tween = new ScrollMagic.Scene({
                 triggerElement: '#section2',
             })
                 .setClassToggle('.section2', 'is-scroll')
@@ -29,10 +29,10 @@ CODING = (function($) {
                 });
         },
         openExplore: function() {
-            var $target = $('.section2');
-            var $exploreBtn = $('#Explore');
-            var $btnText = $exploreBtn.find('span');
-            var btnText = '';
+            let $target = $('.section2');
+            let $exploreBtn = $('#Explore');
+            let $btnText = $exploreBtn.find('span');
+            let btnText = '';
 
             $exploreBtn.on('click', function() {
                 $target.toggleClass('is-active');
@@ -58,7 +58,7 @@ CODING = (function($) {
     }
 
     $(document).ready(function() {
-        common.init();
+        // common.init();
     });
 })(jQuery);
 
