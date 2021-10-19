@@ -8,10 +8,10 @@ CODING = (function($) {
 
     // tween-max
     // let tweenAnimation = new TimelineMax();
-    tweenAnimation
-        .to($('.card1'), 0.03, {rotation: 7})
-        .to($('.card2'), 0.03, {rotation: 14})
-        .to($('.card3'), 0.03, {rotation: 21});
+    // tweenAnimation
+    //     .to($('.card1'), 0.03, {rotation: 7})
+    //     .to($('.card2'), 0.03, {rotation: 14})
+    //     .to($('.card3'), 0.03, {rotation: 21});
 
     let common = {
         scrollMotion: function() {
@@ -33,16 +33,23 @@ CODING = (function($) {
             let $exploreBtn = $('#Explore');
             let $btnText = $exploreBtn.find('span');
             let btnText = '';
+            let cardSwiper;
 
             $exploreBtn.on('click', function() {
-                $target.toggleClass('is-active');
+                $target.toggleClass('card-open');
 
-                if (!$target.hasClass('is-active')) {
+                if (!$target.hasClass('card-open')) {
                     btnText = 'Explore\n our culture';
-                    tweenAnimation.restart();
+                    cardSwiper.destroy(true, true);
+                    // tweenAnimation.restart();
                 } else {
                     btnText = 'Close';
-                    tweenAnimation.reverse();
+                    cardSwiper = new Swiper('.card-swiper', {
+                        slidesPerView: 'auto',
+                        spaceBetween: 30,
+                        pagination: true
+                    });
+                    // tweenAnimation.reverse();
                 }
                 $btnText.text(btnText);
             });
@@ -52,13 +59,13 @@ CODING = (function($) {
             }
         },
         init: function() {
-            common.scrollMotion();
+            // common.scrollMotion();
             common.openExplore();
         }
     }
 
     $(document).ready(function() {
-        // common.init();
+        common.init();
     });
 })(jQuery);
 
