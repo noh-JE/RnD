@@ -16,6 +16,7 @@ section {
     position: relative;
     width: 100%;
     padding: 30px;
+    overflow-x: hidden;
     .inner {
         position: relative;
         width: 100%;
@@ -124,12 +125,15 @@ $height: 544px;
             $size: 402;
             max-width: 100%;
             height: 100%;
-            @for $number from 1 through 4 {
+            @for $number from 1 through 3 {
                 &.card#{$number} {
                     right: ($size * $number) + (13 * $number) + px;
                 }
             }
             &.first {
+                right: -417px;
+            }
+            &.second {
                 right: 0;
             }
             transform: rotate(0deg);

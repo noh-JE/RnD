@@ -159,6 +159,7 @@ section {
   position: relative;
   width: 100%;
   padding: 30px;
+  overflow-x: hidden;
 }
 section .inner {
   position: relative;
@@ -273,10 +274,10 @@ section p {
 #section2.is-active .img-box img.card3 {
   right: 1245px;
 }
-#section2.is-active .img-box img.card4 {
-  right: 1660px;
-}
 #section2.is-active .img-box img.first {
+  right: -417px;
+}
+#section2.is-active .img-box img.second {
   right: 0;
 }
 #section2.is-active .btn-explore {
