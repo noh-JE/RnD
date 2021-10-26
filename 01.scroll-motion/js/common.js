@@ -40,6 +40,7 @@ CODING = (function($) {
 
                 if (!$target.hasClass('is-active')) {
                     btnText = 'Explore\n our culture';
+                    cardSwiper.destroy();
                     tweenAnimation.restart();
                 } else {
                     btnText = 'Close';
