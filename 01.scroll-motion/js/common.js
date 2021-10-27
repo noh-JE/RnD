@@ -46,11 +46,12 @@ CODING = (function($) {
                     btnText = 'Close';
                     cardSwiper = new Swiper('.swiper-container', {
                         slidesPerView: 'auto',
-                        width: 1590,
+                        width: 1450,
                         observer: true, // 새로고침
                         observeParents: true,
                         pagination: {
-                            el: '.swiper-pagination'
+                            el: '.swiper-pagination',
+                            clickable: true,
                         }
                     });
                     tweenAnimation.reverse();
