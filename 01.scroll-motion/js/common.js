@@ -47,7 +47,9 @@ CODING = (function($) {
                     cardSwiper = new Swiper('.card-swiper', {
                         slidesPerView: 'auto',
                         spaceBetween: 30,
-                        pagination: true
+                        pagination: {
+                            el: '.swiper-pagination'
+                        }
                     });
                     // tweenAnimation.reverse();
                 }
