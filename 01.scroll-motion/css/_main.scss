@@ -33,7 +33,7 @@ section {
 .card-text {
     height: auto;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    //transition: opacity 0.5s ease-in-out;
     strong {
         display: block;
         margin-bottom: 30px;
@@ -107,8 +107,8 @@ $cards: ('card4': 5, 'card3': 10, 'card2': 15);
     $cards: ('card1': 5, 'card2': 10, 'card3': 15, 'card4': 20, 'card5': 25);
     @each $card, $num in $cards {
         .#{$card} {
-            transform: rotate(#{$num}deg);
-            transition: transform 1s ease-in-out;
+            //transform: rotate(#{$num}deg);
+            //transition: transform 1s ease-in-out;
         }
     }
     .btn-explore {
