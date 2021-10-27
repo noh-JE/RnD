@@ -10,7 +10,9 @@ html, body {
     font-family: Mallory,Georgia,serif;
     background-color: $bgColor;
 }
-
+#container {
+    overflow: hidden;
+}
 // section 공통
 section {
     position: relative;
@@ -55,12 +57,14 @@ $height: 544px;
 #{selector.nest('#section2', '.swiper-container')} {
     position: relative;
     width: 40%;
-    padding-bottom: 100px;
     .img-box {
         position: relative;
         min-height: $height;
         transform: translate3d(0px, 0px, 0px);
     }
+}
+#{selector.nest('#section2', '.swiper-wrapper')} {
+    width: auto !important;
 }
 #{selector.nest('#section2', '.swiper-container')} {
     .swiper-slide {
@@ -81,28 +85,11 @@ $height: 544px;
     }
 }
 #{selector.nest('#section2', '.swiper-pagination')} {
-    display: none;
-    width: 100%;
-    margin: 0 auto;
-    height: 30px;
-    margin-top: 160px;
-    text-align: center;
-    .swiper-pagination-bullet {
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        margin: 0 5px;
-        border-radius: 50%;
-        background-color: gray;
-        opacity: 0.5;
-        &.swiper-pagination-bullet-active {
-            opacity: 1;
-        }
-    }
+    opacity: 0;
 }
 
 .btn-explore {
-    @include posAbs($top: 35%, $right: 450px);
+    @include posAbs($top: 13%, $right: 450px);
     width: 0;
     height: 0;
     background-color: #fff;
@@ -162,21 +149,38 @@ $height: 544px;
         }
     }
     .swiper-pagination {
-        display: block;
-        transition-delay: 0.5s;
+        width: 100%;
+        height: 30px;
+        margin: 160px auto 0;
+        text-align: center;
+        transition: opacity 0.3s ease-in-out;
+        transition-delay: 0.8s;
+        opacity: 1;
+        .swiper-pagination-bullet {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: gray;
+            opacity: 0.5;
+            &.swiper-pagination-bullet-active {
+                opacity: 1;
+            }
+        }
     }
     .img-box {
         .swiper-slide {
-            $size: 402;
+            $size: 432;
             max-width: 100%;
             height: 100%;
             @for $number from 1 through 3 {
                 &.card#{$number} {
-                    right: ($size * $number) + (20 * $number) + px;
+                    right: ($size * $number) + px;
                 }
             }
             &.first {
-                right: -422px;
+                right: -432px;
             }
             &.second {
                 right: 0;
@@ -187,7 +191,7 @@ $height: 544px;
     // 2. 버튼 위치 변경
     .btn-explore {
         $size: 150px;
-        top: 20%;
+        top: -9%;
         right: 1600px;
         width: $size;
         height: $size;

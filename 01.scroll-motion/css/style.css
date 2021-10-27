@@ -155,6 +155,10 @@ html, body {
   background-color: #ebebeb;
 }
 
+#container {
+  overflow: hidden;
+}
+
 section {
   position: relative;
   width: 100%;
@@ -200,12 +204,15 @@ section p {
 #section2 .swiper-container {
   position: relative;
   width: 40%;
-  padding-bottom: 100px;
 }
 #section2 .swiper-container .img-box {
   position: relative;
   min-height: 544px;
   transform: translate3d(0px, 0px, 0px);
+}
+
+#section2 .swiper-wrapper {
+  width: auto !important;
 }
 
 #section2 .swiper-container .swiper-slide {
@@ -227,29 +234,12 @@ section p {
 }
 
 #section2 .swiper-pagination {
-  display: none;
-  width: 100%;
-  margin: 0 auto;
-  height: 30px;
-  margin-top: 160px;
-  text-align: center;
-}
-#section2 .swiper-pagination .swiper-pagination-bullet {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin: 0 5px;
-  border-radius: 50%;
-  background-color: gray;
-  opacity: 0.5;
-}
-#section2 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  opacity: 1;
+  opacity: 0;
 }
 
 .btn-explore {
   position: absolute;
-  top: 35%;
+  top: 13%;
   right: 450px;
   width: 0;
   height: 0;
@@ -302,8 +292,25 @@ section p {
   transition-delay: 0.5s;
 }
 #section2.is-active .swiper-pagination {
-  display: block;
-  transition-delay: 0.5s;
+  width: 100%;
+  height: 30px;
+  margin: 160px auto 0;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.8s;
+  opacity: 1;
+}
+#section2.is-active .swiper-pagination .swiper-pagination-bullet {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: gray;
+  opacity: 0.5;
+}
+#section2.is-active .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  opacity: 1;
 }
 #section2.is-active .img-box .swiper-slide {
   max-width: 100%;
@@ -311,22 +318,22 @@ section p {
   transform: rotate(0deg);
 }
 #section2.is-active .img-box .swiper-slide.card1 {
-  right: 422px;
+  right: 432px;
 }
 #section2.is-active .img-box .swiper-slide.card2 {
-  right: 844px;
+  right: 864px;
 }
 #section2.is-active .img-box .swiper-slide.card3 {
-  right: 1266px;
+  right: 1296px;
 }
 #section2.is-active .img-box .swiper-slide.first {
-  right: -422px;
+  right: -432px;
 }
 #section2.is-active .img-box .swiper-slide.second {
   right: 0;
 }
 #section2.is-active .btn-explore {
-  top: 20%;
+  top: -9%;
   right: 1600px;
   width: 150px;
   height: 150px;

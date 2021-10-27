@@ -46,7 +46,7 @@ CODING = (function($) {
                     btnText = 'Close';
                     cardSwiper = new Swiper('.swiper-container', {
                         slidesPerView: 'auto',
-                        spaceBetween: 30,
+                        width: 1590,
                         observer: true, // 새로고침
                         observeParents: true,
                         pagination: {
