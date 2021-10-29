@@ -18,38 +18,39 @@
         and if you come for a visit, some pretty good  vibes.
     </h1>
 
-    <div class="flex-container cardWrap is-open">
-<!--        <div class="description">-->
-<!--            <strong>It’s software with a people flair.</strong>-->
-<!--            <p>-->
-<!--                We’ve got that DIY Montreal spirit here. Which means we’re not afraid to try new things. We’re self-sufficient, self-financed, B Corp – in short, our own bosses. And that gives us the flexibility to be braver, quicker, and even the ability to slow things down, if we need to.-->
-<!--            </p>-->
-<!--        </div>-->
-        <!-- 카드 펼쳐지기 전 -->
-        <div class="card-group scrollCard" style="display: none;">
-            <div class="inner">
-                <button type="button" id="Explore" class="btn btn-explore">Explore<br /> our culture</button>
-                <div class="card">
-                    <img src="images/card4.jpeg" alt="">
-                </div>
-                <div class="card card1">
-                    <img src="images/card3.jpg" alt="">
-                </div>
-                <div class="card card2">
-                    <img src="images/card2.jpg" alt="">
-                </div>
-                <div class="card card3">
-                    <img src="images/card1.jpg" alt="">
-                </div>
-                <div class="card card4">
-                    <img src="images/card1.jpg" alt="">
+    <div class="cardWrap">
+        <div class="flex-container">
+            <div class="description">
+                <strong>It’s software with a people flair.</strong>
+                <p>
+                    We’ve got that DIY Montreal spirit here. Which means we’re not afraid to try new things. We’re self-sufficient, self-financed, B Corp – in short, our own bosses. And that gives us the flexibility to be braver, quicker, and even the ability to slow things down, if we need to.
+                </p>
+            </div>
+            <!-- 카드 펼쳐지기 전 -->
+            <div class="card-group scrollCard" style="display: block;">
+                <div class="inner">
+                    <button type="button" id="Explore" class="btn btn-explore">Explore<br /> our culture</button>
+                    <div class="card card3">
+                        <img src="images/card4.jpeg" alt="">
+                    </div>
+                    <div class="card card2">
+                        <img src="images/card4.jpeg" alt="">
+                    </div>
+                    <div class="card card1">
+                        <img src="images/card3.jpg" alt="">
+                    </div>
+                    <div class="card card0">
+                        <img src="images/card2.jpg" alt="">
+                    </div>
+                    <div class="card">
+                        <img src="images/card1.jpg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
-
         <!-- 카드 펼쳐진 후 -->
-        <aside>
-            <div class="card-group swiperCard" style="display: block;">
+        <aside style="visibility: hidden; opacity: 0.2;">
+            <div class="card-group swiperCard">
                 <div class="swiper-wrapper inner">
                     <div class="swiper-slide">
                         <button type="button" id="Close" class="btn btn-close">Close</button>

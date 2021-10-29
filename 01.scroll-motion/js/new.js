@@ -10,12 +10,12 @@ NEW = (function($) {
     let cardSwiper;
 
     // TimelineMax 호출
-    // let tweenAnimation = new TimelineMax();
-    // tweenAnimation
-    //     .to($('.card1 img'), 0.2, {rotation: 7, ease: Power1.easeIn})
-    //     .to($('.card2 img'), 0.2, {rotation: 14, ease: Power1.easeIn})
-    //     .to($('.card3 img'), 0.2, {rotation: 21, ease: Power1.easeIn})
-    //     .fromTo($('#Explore'), {scale: 0.25, opacity: 0}, {scale: 1, opacity: 1, duration: 0.3});
+    let tweenAnimation = new TimelineMax();
+    tweenAnimation
+        .to($('.card1 img'), 0.2, {rotation: 7, ease: Power1.easeIn})
+        .to($('.card2 img'), 0.2, {rotation: 14, ease: Power1.easeIn})
+        .to($('.card3 img'), 0.2, {rotation: 21, ease: Power1.easeIn})
+        .fromTo($('#Explore'), {scale: 0.25, opacity: 0}, {scale: 1, opacity: 1, duration: 0.3});
 
     let common = {
         // scroll 시 모션 이벤트
@@ -34,35 +34,40 @@ NEW = (function($) {
 
         // #Explore 버튼 클릭 시, 카드 모션 이벤트
         clickCardMotion: function() {
+            $('#Explore').on('click', function() {
+                console.log('click');
 
+            });
         },
 
         // 스와이퍼 카드 마크업으로 전환
         swiperSlideCard: function() {
-            cardSwiper = new Swiper('.swiperCard', {
-                slidesPerView: 'auto',
-                spaceBetween: 30,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-            });
 
             // card offset.left 구하기
-            let slideArr = new Array();
-            $('.swiperCard .swiper-slide').each(function(index, slide) {
-                let offsetLeft = $(this).offset().left;
-                slideArr[index] = offsetLeft;
-            });
+            const slideArr = [1, 2, 3, 4, 5];
+            const cardArr = slideArr.map(card => (card * 380) + (card * 30));
+            console.log('cardArr', cardArr);
 
-            // scrollCard의 card에 left값 넣기
-            let cardCount = $('.scrollCard .card').length;
 
-            console.log(slideArr, cardCount);
-             for(let i=1; i<=cardCount; i++) {
-                 let card = $('.scrollCard').find(`.card${i}`);
-                 card.css({'left': slideArr[i] + 30});
-             }
+            if($('.cardWrap').hasClass('is-open')) {
+                cardSwiper = new Swiper('.swiperCard', {
+                    slidesPerView: 'auto',
+                    spaceBetween: 30,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                });
+
+                // scrollCard의 card에 left값 넣기
+                let cardCount = $('.scrollCard .card').length;
+
+                for(let i=0; i<=cardCount; i++) {
+                    let card = $('.scrollCard').find(`.card${i}`);
+                    card.css({'left': cardArr[i]});
+                }
+            }
+
         },
 
         init: function() {

@@ -176,10 +176,13 @@ section h1 {
   justify-content: space-between;
   width: 100%;
 }
+.flex-container > div {
+  position: relative;
+  width: 50%;
+}
 
 .card-group .inner {
   position: relative;
-  margin: 0 auto;
 }
 .card-group .inner img {
   display: block;
@@ -189,6 +192,9 @@ section h1 {
 }
 
 .card-group .card {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
@@ -211,13 +217,14 @@ section h1 {
 
 /* scrollCard */
 .scrollCard {
+  position: relative;
   width: 100%;
   margin-left: 150px;
-  border: 2px solid blue;
 }
-.scrollCard .card-group .inner {
-  width: 400px;
-  height: 544px;
+.scrollCard .inner {
+  width: 380px;
+  height: 560px;
+  margin: 0 auto;
 }
 
 .btn-explore {
@@ -226,6 +233,9 @@ section h1 {
 
 /* swiperCard */
 aside {
+  position: absolute;
+  top: 0;
+  left: 0;
   margin-left: 150px;
 }
 
@@ -237,6 +247,8 @@ aside {
   display: flex;
   justify-content: start;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .swiperCard .swiper-slide {
   flex-shrink: 0;
@@ -255,12 +267,25 @@ aside {
 }
 
 /* open motion 이벤트 */
+.cardWrap.is-open {
+  position: relative;
+}
+.cardWrap.is-open .scrollCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-left: 150px;
+}
+.cardWrap.is-open .scrollCard .card-group .inner {
+  width: 400px;
+  height: 544px;
+}
 .cardWrap.is-open .card {
   position: absolute;
   top: 0;
   left: 0;
   width: 380px;
-  border: 2px solid pink;
 }
 .cardWrap.is-open .card img {
   height: 560px;
