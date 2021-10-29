@@ -1,0 +1,131 @@
+// main.scss
+@use 'sass:selector';
+@use 'common/header';
+@use 'common/footer';
+
+/* 공통 */
+html, body {
+    background-color: $bgColor;
+    font-family: Mallory,Georgia,serif;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+section {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    padding: 30px;
+    h1 {
+        padding-bottom: 150px;
+        font-size: 50px;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+.flex-container {
+    @include flexCenter();
+    width: 100%;
+    //& > div {
+    //    position: relative;
+    //    width: 50%;
+    //}
+}
+#{selector.nest('.card-group', '.inner')} {
+    position: relative;
+    margin: 0 auto;
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+#{selector.nest('.card-group', '.card')} {
+    width: 100%;
+    height: 100%;
+    img {
+        transition: all 0.3s ease-in-out;
+    }
+}
+.btn {
+    @include posAbs($top: 50px, $left: -60px);
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: 1px solid #000;
+    @include radius(50%);
+    z-index: 1;
+    transform: rotate(15deg);
+}
+
+/* scrollCard */
+.scrollCard {
+    width: 100%;
+    margin-left: 150px;
+    border: 2px solid blue;
+    #{selector.nest('.card-group', '.inner')} {
+
+        width: 400px;
+        height: 544px;
+    }
+}
+.btn-explore {
+    transform: scale(0.04) rotate(15deg);
+}
+
+/* swiperCard */
+aside {
+    margin-left: 150px;
+}
+.swiperCard {
+    width: 100%;
+    height: 100%;
+    .swiper-wrapper {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+    .swiper-slide {
+        flex-shrink: 0;
+        width: 25%;
+        img {
+            display: block;
+            width: 100%;
+            height: 560px;
+            object-fit: cover;
+        }
+    }
+}
+
+/* scroll motion 이벤트 */
+#{selector.append('.card-group', '.is-scroll')} {
+    // Card rotation Motion
+    //@for $number from 1 through 3 {
+    //    $degree: 7;
+    //    .card#{$number} {
+    //        img {
+    //            transform: rotate($degree*$number + deg);
+    //        }
+    //    }
+    //}
+    .btn-explore {
+        transform: scale(1);
+    }
+}
+/* open motion 이벤트 */
+#{selector.append('.cardWrap', '.is-open')} {
+    .card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 380px;
+        //height: 560px;
+
+        border: 2px solid pink;
+        img {
+            height: 560px;
+            transform: rotate(0);
+        }
+    }
+
+}

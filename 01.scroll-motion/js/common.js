@@ -40,6 +40,36 @@ CODING = (function($) {
             $exploreBtn.on('click', function() {
                 // $target.toggleClass('card-open');
                 // action.reverse();
+
+
+                gsap.to('.card-swiper', {duration: 0.3, stagger: 0.3});
+                gsap.to(".left", {
+                    duration: 0.35,
+                    x: function(index, target, list) {
+                        return index * -432;
+                    },
+                    stagger: function(index, target, list) {
+                        return index * 0.25;
+                    },
+                    // onComplete: ['성공']
+                });
+                gsap.to(".right", {
+                    duration: 0.5,
+                    x: 432,
+                    stagger: function(index, target, list) {
+                        return index * 0.25;
+                    },
+                    // onComplete: ['성공']
+                });
+
+                cardSwiper = new Swiper('.card-swiper', {
+                    slidesPerView: 'auto',
+                    spaceBetween: 30,
+                    pagination: {
+                        el: '.swiper-pagination'
+                    }
+                });
+
                 if (!$target.hasClass('card-open')) {
                     btnText = 'Explore\n our culture';
                     cardSwiper.destroy(true, true);
@@ -72,24 +102,7 @@ CODING = (function($) {
         //         amount: 0.5
         //     }});
         //
-        gsap.to(".swiper-slide", {
-            duration: 0.5,
-            x: function(index, target, list) {
-                return index * 402;
-            },
-            stagger: function(index, target, list) {
-                return index * 0.4;
-            },
-            // onComplete: ['성공']
-        });
 
-        cardSwiper = new Swiper('.card-swiper', {
-            slidesPerView: 'auto',
-            spaceBetween: 30,
-            pagination: {
-                el: '.swiper-pagination'
-            }
-        });
 
     });
 })(jQuery);
