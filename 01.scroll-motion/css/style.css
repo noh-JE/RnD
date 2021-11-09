@@ -181,6 +181,10 @@ section h1 {
   width: 50%;
 }
 
+.description {
+  opacity: 1;
+}
+
 .card-group .inner {
   position: relative;
 }
@@ -197,6 +201,7 @@ section h1 {
   left: 0;
   width: 100%;
   height: 100%;
+  transition: left 0.4s ease-in-out;
 }
 .card-group .card img {
   transition: all 0.3s ease-in-out;
@@ -218,8 +223,8 @@ section h1 {
 /* scrollCard */
 .scrollCard {
   position: relative;
-  width: 100%;
   margin-left: 150px;
+  border: 2px solid blue;
 }
 .scrollCard .inner {
   width: 380px;
@@ -269,25 +274,38 @@ aside {
 /* open motion 이벤트 */
 .cardWrap.is-open {
   position: relative;
+  margin-left: 150px;
+}
+.cardWrap.is-open .flex-container > div {
+  position: unset;
+}
+.cardWrap.is-open .description {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 .cardWrap.is-open .scrollCard {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  margin-left: 150px;
 }
-.cardWrap.is-open .scrollCard .card-group .inner {
-  width: 400px;
-  height: 544px;
+.cardWrap.is-open .scrollCard .inner {
+  position: unset;
+  width: 100%;
+}
+.cardWrap.is-open .scrollCard img {
+  transform: rotate(0) !important;
 }
 .cardWrap.is-open .card {
   position: absolute;
   top: 0;
   left: 0;
   width: 380px;
+  transition-delay: 0.4s;
 }
 .cardWrap.is-open .card img {
   height: 560px;
   transform: rotate(0);
+}
+.cardWrap.is-open aside {
+  display: none;
 }
