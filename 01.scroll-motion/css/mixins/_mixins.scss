@@ -34,3 +34,8 @@
     border-radius: $round;
 }
 
+@function PxToVw($calNum, $allNum) {
+    $vw: ($calNum * 100) / $allNum;
+    @return #{$vw}vw;
+}
+

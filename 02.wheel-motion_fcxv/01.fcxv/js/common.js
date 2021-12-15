@@ -1,46 +1,35 @@
-let FCXV = window.FCXV || {};
-
-FCXV = (function($) {
-    'use strict';
-    let scroll = {
-        // wheel event
-        wheelEvent: function() {
-            let deltaY = 20;
-            let imageNumber;
-            let lastNumber = 191;
 
 
+let last_know_scroll_position = 0;
+let ticking = false;
 
-            $(window).on('wheel', function() {
-                if(deltaY > lastNumber) {
-                    deltaY = lastNumber;
-                } else {
-                    deltaY++;
+/* loading 시, count */
+function countUp() {
+    console.log('counting');
+    const countBox = $('#Count');
+    let count = 0;
 
-                    if(deltaY < 100) {
-                        imageNumber = `0${deltaY}`;
-                    } else if(deltaY >= 100) {
-                        imageNumber = deltaY;
-                    }
-
-                    let $Container = $('#container');
-                    let Bg = $Container.attr('data-image', `../images/home/BG_Home_00${imageNumber}.webp`);
-                    let BgUrl = Bg.attr('data-image');
-
-                    console.log('Bg', BgUrl);
-
-                    $Container.css({backgroundImage: url(Bg)});
-                }
-            });
-
-        },
-        init: function() {
-            scroll.wheelEvent();
+    const counting = setInterval(function() {
+        if(count === 100) {
+            clearInterval(counting);
+            setTimeout(function() {
+                $('body').removeClass('loading');
+            }, 35);
+            return false;
         }
-    }
+        count += 1;
+        countBox.text(count);
+    }, 30);
+}
 
-    $(document).ready(function() {
-        scroll.init();
-    });
-})(jQuery);
 
+
+/* window load */
+$(document).ready(function() {
+    // countUp();
+});
+
+/* Mouse Scroll Wheel Event */
+$(window).on('wheel', function() {
+
+})

@@ -1,0 +1,165 @@
+// main.scss
+@use 'sass:selector';
+@use 'common/header';
+@use 'common/footer';
+
+html, body {
+    background-color: $bgColor;
+    font-family: Mallory,Georgia,serif;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+section {
+    padding: 30px;
+    h1 {
+        padding-bottom: 150px;
+        font-size: 50px;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+#{selector.nest('.section2', '.inner')} {
+    position: relative;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    & > div {
+        width: 50%;
+    }
+}
+.card-text {
+    height: auto;
+    opacity: 1;
+    //transition: opacity 0.5s ease-in-out;
+    strong {
+        display: block;
+        margin-bottom: 30px;
+        font-size: 48px;
+        line-height: 1.04167em;
+    }
+    p {
+        font-size: 18px;
+        line-height: 1.55556em;
+    }
+}
+#{selector.nest('.card-swiper', '.swiper-wrapper')} {
+    position: relative;
+    width: 402px;
+    height: 544px;
+    margin: 0 auto;
+}
+#{selector.nest('.card-swiper', '.swiper-slide')} {
+    @include posAbs($top: 0, $left: 0);
+    width: 100%;
+    height: 100%;
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.card-desc {
+    display: flex;
+
+
+    margin-top: 10px;
+    font-size: 18px;
+    transform: translateY(30px);
+    opacity: 0;
+
+    //transition-delay: 1s;
+    //transition: all 0.3s ease-in-out;
+    span {
+        width: 10%;
+    }
+    p {
+        width: 90%;
+        strong {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bolder;
+        }
+    }
+}
+.btn-explore {
+    @include posAbs($top: 50px, $left: -60px);
+    width: 0;
+    height: 0;
+    background-color: #fff;
+    border: 1px solid #000;
+    @include radius(50%);
+    z-index: 1;
+    transition: all 0.5s linear;
+    span {
+        color: transparent;
+        transition: all 0.4s linear;
+        transition-delay: 0.25s;
+    }
+}
+
+// scroll motion
+$cards: ('card4': 5, 'card3': 10, 'card2': 15);
+#section2.scroll {
+    $cards: ('card1': 5, 'card2': 10, 'card3': 15, 'card4': 20, 'card5': 25);
+    @each $card, $num in $cards {
+        .#{$card} {
+            //transform: rotate(#{$num}deg);
+            //transition: transform 1s ease-in-out;
+        }
+    }
+    .btn-explore {
+        $size: 155px;
+        width: $size;
+        height: $size;
+        span {
+            color: #111;
+        }
+    }
+}
+
+// swiper-slide 동작 되었을 때
+#section2.card-open {
+    .inner {
+        display: block;
+        & > div {
+            width: 100%;
+        }
+    }
+    .card-text {
+        opacity: 0;
+        height: 0;
+    }
+    .swiper-container {
+        padding-left: 150px;
+    }
+    #{selector.nest('.card-swiper', '.swiper-wrapper')} {
+        display: flex;
+        width: 100%;
+        height: auto;
+    }
+    #{selector.nest('.card-swiper', '.swiper-slide')} {
+        position: static;
+        flex-shrink: 0;
+        width: 25%;
+        img {
+            display: block;
+            width: 100%;
+            height: 640px;
+            object-fit: cover;
+        }
+    }
+    .card-desc {
+        //opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#section2.card-open.scroll{
+    #{selector.nest('.card-swiper', '.swiper-slide')} {
+        transform: rotate(0);
+    }
+}
